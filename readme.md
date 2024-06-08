@@ -95,7 +95,9 @@ sudo iptables -A FORWARD -i wlan0 -o usb0 -j ACCEPT
 
 #### 使用xx使iptables命令永久生效
 ```
-
+sudo apt-get update
+sudo apt-get install iptables-persistent
+sudo netfilter-persistent save
 ```
 
 ## 有线网络共享
