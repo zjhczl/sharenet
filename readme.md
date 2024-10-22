@@ -92,6 +92,9 @@ sudo iptables -A FORWARD -i usb0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 #允许从wlan0网卡输入的数据包，无条件地转发到usb0网卡输出，让wlan0网卡的设备通过usb0网卡访问外部网络
 sudo iptables -A FORWARD -i wlan0 -o usb0 -j ACCEPT
 ```
+#强制使用iptables
+sudo update-alternatives --config iptables
+
 
 #### 使用xx使iptables命令永久生效
 ```
