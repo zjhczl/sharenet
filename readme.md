@@ -126,7 +126,7 @@ sudo update-alternatives --config iptables
 ifconfig wlan0 192.168.200.1
 sudo systemctl restart hostapd
 sudo nft add table nat
-sudo nft add chain nat postrouting
+#sudo nft add chain nat postrouting
 sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
 
 ```
