@@ -117,3 +117,17 @@ sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
 ### 其他设备连接网卡eth0
 其它设备设置网关为192.168.200.1
 
+## 问题
+### 使用nftables的，iptable的配置不能生效，可以使用下面的方法解决
+```
+#选择传统的iptable方式
+sudo update-alternatives --config iptables
+
+ifconfig wlan0 192.168.200.1
+sudo systemctl restart hostapd
+sudo nft add table nat
+sudo nft add chain nat postrouting
+sudo iptables -t nat -A POSTROUTING -o usb0 -j MASQUERADE
+
+```
+
